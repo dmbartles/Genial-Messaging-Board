@@ -19,7 +19,7 @@
 
             <div class="content">
                 <div class="title m-b-sm font-effect-3d">
-                  #Genial
+                  Genial
                 </div>
 
 
