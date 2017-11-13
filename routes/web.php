@@ -12,8 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
 });
+
+Route::get('/testdata', function () {
+    return view('testdata');
+});
+
+Route::get('/addbio', 'FormController@AddBio');
 
 Route::get('/debug', function () {
 
