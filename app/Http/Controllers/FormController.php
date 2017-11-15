@@ -27,9 +27,7 @@ class FormController extends Controller
     $user_bio_add->user_name = $UserName;
     $user_bio_add->bio_text = $UserBio;
     $user_bio_add->save();
-
     return view('testdata');
-
   }
 
 

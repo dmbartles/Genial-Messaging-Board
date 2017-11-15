@@ -25,11 +25,11 @@
   @foreach ($results as $result)
 
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
       <h4>User</h4>
       <p>{{  $result->user_name }}</p>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-10">
       <h4>Bio</h4>
       <p>{{  $result->bio_text }}</p>
     </div>

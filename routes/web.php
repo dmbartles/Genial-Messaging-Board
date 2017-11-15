@@ -54,3 +54,5 @@ Route::get('/env', function () {
     dump(config('app.debug'));
     dump(config('app.url'));
 });
+
+Route::get('/practice', 'PracticeController@practice');
