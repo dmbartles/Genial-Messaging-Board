@@ -16,7 +16,7 @@
 	@stack('head')
 </head>
 <body style="background-color: #F5FAFA;">
-	<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #6D929B; height: 3.2em;">
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #6D929B;">
 		<a class="navbar-brand" href="#">Genial</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
