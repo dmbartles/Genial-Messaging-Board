@@ -18,20 +18,19 @@
 </div>
 <hr>
 <div class="container">
-  <?php
-  use App\User_bio;
-  $results = User_bio::all();
-  ?>
+        <h3>Recently Added Bios</h3>
+    <hr>
+
   @foreach ($results as $result)
 
   <div class="row">
     <div class="col-md-2">
-      <h4>User</h4>
-      <p>{{  $result->user_name }}</p>
+        <p>User</p>
+      <h4>{{  $result->user_name }}</h4>
     </div>
     <div class="col-md-10">
-      <h4>Bio</h4>
-      <p>{{  $result->bio_text }}</p>
+      <p>Bio</p>
+      <h4>{{  $result->bio_text }}</h4>
     </div>
   </div>
   <hr>

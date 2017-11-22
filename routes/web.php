@@ -11,13 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
+Route::get('/', 'FormController@MainDisplayPosts');
 
-Route::get('/testdata', function () {
-    return view('testdata');
-});
+
+Route::get('/testdata', 'FormController@DisplayBios');
 
 Route::get('/addbio', 'FormController@AddBio');
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User_bio;
+use App\Post;
+
 
 class FormController extends Controller
 {
@@ -27,7 +29,22 @@ class FormController extends Controller
     $user_bio_add->user_name = $UserName;
     $user_bio_add->bio_text = $UserBio;
     $user_bio_add->save();
-    return view('testdata');
+
+    $results = User_bio::orderBy('updated_at','desc')->limit(5)->get();
+    return view('testdata')->with(['results' => $results]);
+  }
+
+
+  public function DisplayBios()
+  {
+    $results = User_bio::orderBy('updated_at','desc')->limit(5)->get();
+    return view('testdata')->with(['results' => $results]);
+  }
+
+  public function MainDisplayPosts()
+  {
+    $results = Post::orderBy('updated_at','desc')->limit(5)->get();
+    return view('main')->with(['results' => $results]);
   }
 
 
