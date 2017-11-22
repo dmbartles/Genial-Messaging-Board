@@ -1,10 +1,8 @@
 body {
-  margin-top: 90px; /* Acccount for navbar */
+  margin-top: 60px; /* Acccount for navbar */
   margin-bottom: 60px; /* Margin bottom by footer height */
 }
-.navbar {
-    height: 90px; /* Set the fixed height of the footer here */
-}
+
 .footer {
   position: absolute;
   width: 100%;
