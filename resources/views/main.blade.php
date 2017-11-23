@@ -1,17 +1,18 @@
 @extends('layouts.master')
 
+
 @section('content')
 <main role="main">
   <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron" style="background-color: #C1DAD6;">
     <div class="container">
+      <div class="jumbotron myJumbotron">
       <h1 class="display-3">Genial</h1>
+      <p>ge·ni·al /ˈjēnyəl/:: mid 16th century: from Latin genialis ‘nuptial, productive,’ from genius. The Latin sense was adopted into English; hence the senses ‘mild and conducive to growth’ (mid 17th century), later ‘cheerful, kindly’ (mid 18th century).</p>
       <h2>Let's have interesting conversations without misunderstanding and bullying</h2>
     </div>
   </div>
 
   <div class="container">
-    <!-- Example row of columns -->
     <div class="row">
       <div class="col-md-4">
         <h2>Follow Ideas</h2>
@@ -42,7 +43,7 @@
         <h4>{{  $result->user_name }}</h4>
       </div>
       <div class="col-md-10">
-        <p> {{  $result->topic }} / {{  $result->subject }}</p>
+        <p> {{  $result->topic }} / {{  $result->subject }} / {{ $result->updated_at }}</p>
         <h4>{{  $result->post_text }}</h4>
       </div>
     </div>
