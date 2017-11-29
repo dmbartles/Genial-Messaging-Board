@@ -27,7 +27,7 @@ class PostsTableSeeder extends Seeder
               'updated_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
               'user_name' => $post[0],
               'topic' => $post[2],
-              'subject' => $post[1],
+              'subtopic' => $post[1],
               'post_text' => $post[3],
           ]);
           $count--;

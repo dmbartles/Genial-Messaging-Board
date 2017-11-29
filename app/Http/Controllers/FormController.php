@@ -31,14 +31,42 @@ class FormController extends Controller
     $user_bio_add->save();
 
     $results = User_bio::orderBy('updated_at','desc')->limit(5)->get();
-    return view('testdata')->with(['results' => $results]);
+    return view('addbio')->with(['results' => $results]);
   }
+
+
+  public function AddPost(Request $request)
+  {
+    $this->validate($request, [
+      'UserName' => 'max:25'
+    ]);
+
+    $this->validate($request, [
+      'PostText' => 'max:255'
+    ]);
+
+    $post_text_add = new post();
+
+    $UserName = $request->input('UserName');
+    $UserPost = $request->input('UserPost');
+
+
+    $post_text_add->user_name = $UserName;
+    $post_text_add->post_text = $UserPost;
+    $post_text_add->topic = 'Test Topic';
+    $post_text_add->subtopic = 'Test Subtopic';
+    $post_text_add->save();
+
+    $results = Post::orderBy('updated_at','desc')->limit(5)->get();
+    return view('main')->with(['results' => $results]);
+  }
+
 
 
   public function DisplayBios()
   {
     $results = User_bio::orderBy('updated_at','desc')->limit(5)->get();
-    return view('testdata')->with(['results' => $results]);
+    return view('addbio')->with(['results' => $results]);
   }
 
   public function MainDisplayPosts()

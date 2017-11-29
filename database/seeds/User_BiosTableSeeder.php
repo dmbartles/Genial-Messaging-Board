@@ -14,10 +14,10 @@ class User_BiosTableSeeder extends Seeder
     {
 
       $user_bios = [
-          ['Bob Smith','I like hunting cause I like eating!'],
-          ['Jane Smith','It is getting hot in here'],
+          ['Bob Smith','I like hunting'],
+          ['Jane Smith','I think golbal warming will kill us all'],
           ['John Trump','I do not believe in global warming, but I rarely leave air conditioning'],
-          ['Anne Roads','I hate you, Trump!'],
+          ['Anne Roads','I hate others opinions'],
       ];
 
       $count = count($user_bios);

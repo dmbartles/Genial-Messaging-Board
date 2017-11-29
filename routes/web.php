@@ -10,13 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::post('/', 'FormController@AddPost');
 Route::get('/', 'FormController@MainDisplayPosts');
 
 
-Route::get('/testdata', 'FormController@DisplayBios');
+Route::get('/addbio', 'FormController@DisplayBios');
 
-Route::get('/addbio', 'FormController@AddBio');
+Route::post('/addbio', 'FormController@AddBio');
+
+
 
 Route::get('/debug', function () {
 

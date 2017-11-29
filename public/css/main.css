@@ -3,14 +3,19 @@ body {
   padding-top: 70px;
 }
 
-.navbar {
+.myNavbar {
   background-color:#1d2120;
 }
 
 .myJumbotron {
    background-color:#ba9077;
+   padding:20px;
 }
 
 .myFooter {
   background-color:#5a5c51;
+}
+
+.postDisplay {
+ background-color:white;
 }

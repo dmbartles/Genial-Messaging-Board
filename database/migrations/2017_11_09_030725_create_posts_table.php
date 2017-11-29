@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->timestamps();
             $table->string('user_name', 25);
             $table->string('topic');
-            $table->string('subject');
+            $table->string('subtopic');
             $table->text('post_text');
         });
     }

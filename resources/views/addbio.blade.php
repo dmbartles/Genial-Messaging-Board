@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <form method='GET' action='/addbio'>
+  <form method='POST' action='/addbio'>
     <div class="form-group">
       {{ csrf_field() }}
       <label for="UserName">Enter User Name</label>
