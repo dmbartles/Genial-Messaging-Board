@@ -5,14 +5,9 @@ use App\User_bio;
 
 class User_BiosTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
-
       $user_bios = [
           ['Bob Smith','I like hunting'],
           ['Jane Smith','I think golbal warming will kill us all'],

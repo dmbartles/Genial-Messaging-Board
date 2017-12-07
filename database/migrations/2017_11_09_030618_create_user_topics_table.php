@@ -14,7 +14,7 @@ class CreateUserTopicsTable extends Migration
     public function up()
     {
         Schema::create('user_topics', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->timestamps();
             $table->string('user_name', 25);
             $table->string('topic');

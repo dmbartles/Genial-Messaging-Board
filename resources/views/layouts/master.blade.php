@@ -28,10 +28,10 @@
 	            <a class="nav-link" href="/">Home</a>
 	          </li>
 	          <li class="nav-item">
-	            <a class="nav-link" href="/addbio">Add User Bio</a>
+	            <a class="nav-link" href="/addbio">Add Bio</a>
 	          </li>
 	          <li class="nav-item">
-	            <a class="nav-link disabled" href="#">Disabled</a>
+	            <a class="nav-link" href="/addpost">Add Post</a>
 	          </li>
 	         </ul>
 	        <form class="form-inline my-2 my-lg-0">

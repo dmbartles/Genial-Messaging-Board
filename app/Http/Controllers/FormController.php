@@ -5,10 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User_bio;
 use App\Post;
+use App\User_topic;
+use App\Comment;
 
 
 class FormController extends Controller
 {
+
+  public function DisplayBios()
+  {
+    $results = User_bio::orderBy('updated_at','desc')->limit(5)->get();
+    return view('addbio')->with(['results' => $results]);
+  }
 
   public function AddBio(Request $request)
   {
@@ -35,6 +43,11 @@ class FormController extends Controller
   }
 
 
+  public function DisplayPost(Request $request)
+  {
+    return view('addpost');
+  }
+
   public function AddPost(Request $request)
   {
     $this->validate($request, [
@@ -57,23 +70,46 @@ class FormController extends Controller
     $post_text_add->subtopic = 'Test Subtopic';
     $post_text_add->save();
 
-    $results = Post::orderBy('updated_at','desc')->limit(5)->get();
+    $results = Post::orderBy('updated_at','desc')->with('comments')->get();
     return view('main')->with(['results' => $results]);
+
   }
 
 
 
-  public function DisplayBios()
-  {
-    $results = User_bio::orderBy('updated_at','desc')->limit(5)->get();
-    return view('addbio')->with(['results' => $results]);
-  }
+
 
   public function MainDisplayPosts()
   {
-    $results = Post::orderBy('updated_at','desc')->limit(5)->get();
+    $results = Post::orderBy('updated_at','desc')->with('comments')->get();
     return view('main')->with(['results' => $results]);
   }
+
+  public function DumpAll()
+  {
+    echo 'user posts';
+    $posts = Post::orderBy('updated_at','desc')->get();
+    dump($posts->toArray());
+
+    echo 'user bios';
+    $bios = User_bio::orderBy('updated_at','desc')->get();
+    dump($bios->toArray());
+
+    echo 'user topics';
+    $topics = User_topic::orderBy('updated_at','desc')->get();
+    dump($topics->toArray());
+
+    echo 'user comments';
+    $comments = Comment::orderBy('updated_at','desc')->get();
+    dump($comments->toArray());
+
+    echo 'test';
+
+    $comments = Post::orderBy('updated_at','desc')->limit(5)->with('comments')->get();
+    dump($comments->toArray());
+  }
+
+
 
 
 }

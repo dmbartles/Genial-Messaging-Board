@@ -1,15 +1,9 @@
 <?php
-
 use Illuminate\Database\Seeder;
 use App\Post;
 
 class PostsTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
       $posts = [
@@ -20,7 +14,6 @@ class PostsTableSeeder extends Seeder
       ];
 
       $count = count($posts);
-
       foreach ($posts as $key => $post) {
           Post::insert([
               'created_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
@@ -28,10 +21,9 @@ class PostsTableSeeder extends Seeder
               'user_name' => $post[0],
               'topic' => $post[2],
               'subtopic' => $post[1],
-              'post_text' => $post[3],
+              'post_text' => $post[3]
           ]);
           $count--;
       }
-
     }
 }

@@ -19,3 +19,13 @@ body {
 .postDisplay {
  background-color:white;
 }
+
+.myCarousel {
+   padding:20px;
+   background-color:white;
+}
+
+.myBox {
+   padding:10px;
+   background-color:white;
+}
