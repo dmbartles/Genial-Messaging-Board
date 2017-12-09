@@ -1,26 +1,27 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-Route::get('/addpost', 'FormController@DisplayPost');
-Route::post('/addpost', 'FormController@AddPost');
 
-Route::get('/addbio', 'FormController@DisplayBios');
-Route::post('/addbio', 'FormController@AddBio');
+# View main page
+Route::get('/', 'FormController@main');
+Route::get('/index', 'FormController@index');
 
+# Create a post
+Route::get('/post/create', 'FormController@create');
+Route::post('/post/store', 'FormController@store');
+# Create a comment
+#Route::get('/post/create', 'FormController@create');
+#Route::post('/post', 'FormController@store');
+# Edit a post
+Route::get('/post/{id}/edit', 'FormController@edit');
+Route::put('/post/{id}', 'FormController@update');
+# Delete a post
+Route::get('/post/{id}/delete', 'FormController@delete');
+Route::delete('/post/{id}', 'FormController@destroy');
+# View a post
+Route::get('/post/{id}', 'FormController@show');
+# Search all posts
+#Route::get('/post', 'FormController@search');
 
-
-Route::get('/', 'FormController@MainDisplayPosts');
-
-Route::get('/dumpall', 'FormController@DumpAll');
 
 Route::get('/debug', function () {
 
@@ -46,3 +47,5 @@ Route::get('/env', function () {
     dump(config('app.debug'));
     dump(config('app.url'));
 });
+
+Route::get('/dumpall', 'FormController@DumpAll');

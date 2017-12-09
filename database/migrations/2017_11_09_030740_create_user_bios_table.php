@@ -14,7 +14,7 @@ class CreateUserBiosTable extends Migration
     public function up()
     {
         Schema::create('user_bios', function (Blueprint $table) {
-            $table->increments('bio_id');
+            $table->increments('id');
             $table->timestamps();
             $table->string('user_name', 25);
             $table->text('bio_text');
