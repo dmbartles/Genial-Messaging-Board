@@ -9,8 +9,7 @@ Route::get('/index', 'FormController@index');
 Route::get('/post/create', 'FormController@create');
 Route::post('/post/store', 'FormController@store');
 # Create a comment
-#Route::get('/post/create', 'FormController@create');
-#Route::post('/post', 'FormController@store');
+Route::post('/post/{id}/comment', 'FormController@comment');
 # Edit a post
 Route::get('/post/{id}/edit', 'FormController@edit');
 Route::put('/post/{id}', 'FormController@update');
