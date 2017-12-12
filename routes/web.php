@@ -4,12 +4,13 @@
 # View main page
 Route::get('/', 'FormController@main');
 Route::get('/index', 'FormController@index');
-
 # Create a post
 Route::get('/post/create', 'FormController@create');
 Route::post('/post/store', 'FormController@store');
 # Create a comment
 Route::post('/post/{id}/comment', 'FormController@comment');
+# tag a post
+Route::post('/post/{id}/tag', 'FormController@tag');
 # Edit a post
 Route::get('/post/{id}/edit', 'FormController@edit');
 Route::put('/post/{id}', 'FormController@update');
@@ -20,7 +21,6 @@ Route::delete('/post/{id}', 'FormController@destroy');
 Route::get('/post/{id}', 'FormController@show');
 # Search all posts
 #Route::get('/post', 'FormController@search');
-
 
 Route::get('/debug', function () {
 

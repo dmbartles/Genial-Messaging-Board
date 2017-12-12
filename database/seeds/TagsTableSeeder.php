@@ -5,10 +5,26 @@ class TagsTableSeeder extends Seeder
 {
     public function run()
     {
-        $tags = ['novel', 'fiction', 'classic', 'wealth', 'women', 'autobiography', 'nonfiction', 'childrens', 'magic', 'adventure'];
+        $tags = ['Science',
+        'Literature',
+        'TV',
+        'Movies',
+        'Exercise',
+        'Wealth',
+        'Hobbies',
+        'News',
+        'Politics',
+        'Nature',
+        'Animals',
+        'Relationships',
+        'Advice',
+        'Poems',
+        'Other',
+        'Military'
+      ];
         foreach ($tags as $tagName) {
             $tag = new Tag();
-            $tag->name = $tagName;
+            $tag->tag = $tagName;
             $tag->save();
         }
     }

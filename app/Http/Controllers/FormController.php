@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
-use App\User_topic;
-use App\Comment;
 use App\Tag;
+use App\Comment;
+
 
 
 class FormController extends Controller
@@ -16,7 +16,8 @@ class FormController extends Controller
   public function main()
   {
     $results = Post::orderBy('updated_at','desc')->with('comments')->with('tags')->get();
-    return view('main')->with(['results' => $results]);
+    $tags = Tag::orderBy('tag')->get();
+    return view('main')->with(['results' => $results,'tags' => $tags]);
   }
 
   public function index()
@@ -76,6 +77,13 @@ class FormController extends Controller
     ]);
   }
 
+    public function tag(Request $request, $id)
+    {
+      $post = post::where('id','=',$id)->get();
+      $post->tags()->attach(input('tag'));
+      return redirect('/');
+    }
+
   public function update(Request $request, $id)
   {
     $this->validate($request, [
@@ -128,10 +136,14 @@ class FormController extends Controller
     $comments = Comment::orderBy('updated_at','desc')->get();
     dump($comments->toArray());
 
-    echo 'post tags';
-    $id=1;
-    $results = Post::where('id','=',$id)->with('comments')->with('tags')->get();
-    dump($results->toArray());
-    }
+    echo 'tags';
+    $tags = Tag::orderBy('tag')->get();
+  dump($tags->toArray());
+
+      echo 'all';
+        $results = Post::orderBy('updated_at','desc')->with('comments')->with('tags')->get();
+          dump($results->toArray());
+
+  }
 
 }

@@ -101,11 +101,13 @@
   <div class="card card-body">
     <form method='POST' action='/post/{{$result->id}}/tag'>
       {{ csrf_field() }}
-
       <div class="row">
         <div class="col-md-6">
-          <label for="user_name">Enter User Name</label>
-          <input type="text" name="user_name" class="form-control" id="user_name"></input>
+              <select class="form-control" name="tag" id="tag">
+            @foreach ($tags as $tag)
+                <option value='{{$tag->id}}'>{{$tag->tag}}</option>
+              @endforeach
+          </select>
         </div>
         <div class="col-md-6">
         <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
@@ -130,7 +132,7 @@
   </div>
   <i class="fa fa-tag" aria-hidden="true"></i>
   @foreach ($result->tags as $tag)
-    {{$tag->name}}
+    {{$tag->tag}}
     @endforeach
   </div><!-- End Media -->
   <br>
