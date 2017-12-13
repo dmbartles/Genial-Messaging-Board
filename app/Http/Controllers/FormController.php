@@ -127,9 +127,23 @@ class FormController extends Controller
     return redirect('/');
   }
 
-  /*
+
   public function DumpAll()
   {
+
+
+    $courses = Comment::all();
+    foreach($courses as $course) {
+        dump($course->comment_text);
+    }
+
+    $courses = Post::with('comments')->get();
+    foreach($courses as $course) {
+       dump($course->comment);
+    }
+
+
+/*
     echo 'user posts';
     $posts = Post::orderBy('updated_at','desc')->get();
     dump($posts->toArray());
@@ -145,6 +159,8 @@ class FormController extends Controller
     echo 'all';
     $results = Post::orderBy('updated_at','desc')->with('comments')->with('tags')->get();
     dump($results->toArray());
-  }*/
+*/
 
+
+  }
 }

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Tag;
+use App\Post;
 
 class PostTagTableSeeder extends Seeder
 {
@@ -14,16 +14,9 @@ class PostTagTableSeeder extends Seeder
       [4,4],
     ];
 
-    $count = count($post_tags);
-
-    foreach ($post_tags as $key => $post_tag) {
-      Tag::insert([
-        'created_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
-        'updated_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
-        'post_id' => $post_tag[0],
-        'tag_id' => $post_tag[1]
-      ]);
-      $count--;
-    }
+      foreach ($post_tags as $post_tag) {
+        $post = Post::where('id','=',$post_tag[0])->first();
+        $post->tags()->attach($post_tag[1]);
+      }
   }
 }

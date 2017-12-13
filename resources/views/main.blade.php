@@ -87,21 +87,21 @@
         <div class="row">
           <div class="col-md-6">
             <label for="user_name">Enter User Name</label>
-            <input type="text" name="user_name" class="form-control" id="username" value='{{ old('topic', $result->user_name) }}'></input>
+            <input type="text" name="user_name" class="form-control" value='{{ old('topic', $result->user_name) }}'>
           </div>
           <div class="col-md-3">
             <label for="topic">Topic</label>
-            <input type='text' name='topic' class="form-control" id='topic' value='{{ old('topic', $result->topic) }}'></input>
+            <input type='text' name='topic' class="form-control" value='{{ old('topic', $result->topic) }}'>
           </div>
           <div class="col-md-3">
             <label for="subtopic">Subtopic</label>
-            <input type='text' name='subtopic' class="form-control" id='subtopic' value='{{ old('subtopic', $result->subtopic) }}'>
+            <input type='text' name='subtopic' class="form-control" value='{{ old('subtopic', $result->subtopic) }}'>
           </div>
         </div>
         <div class="row">
           <div class="col">
             <label for="post_text">Edit Your Post</label>
-            <textarea name="post_text" class="form-control" id="post_text"  rows='6'>{{ old('post_text', $result->post_text) }}</textarea>
+            <textarea name="post_text" class="form-control" rows='6'>{{ old('post_text', $result->post_text) }}</textarea>
           </div>
         </div>
         <br>
@@ -121,13 +121,13 @@
           <div class="row">
             <div class="col-md-6">
               <label for="user_name">Enter User Name</label>
-              <input type="text" name="user_name" class="form-control" id="user_name"></input>
+              <input type="text" name="user_name" class="form-control">
             </div>
           </div>
           <div class="row">
             <div class="col">
               <label for="comment_text">Enter Your Comment</label>
-              <textarea name="comment_text" class="form-control" id="comment_text" rows="2"></textarea>
+              <textarea name="comment_text" class="form-control" rows="2"></textarea>
             </div>
           </div>
           <br>
@@ -147,7 +147,7 @@
           {{ csrf_field() }}
           <div class="row">
             <div class="col-md-6">
-              <select class="form-control" name="tag" id="tag">
+              <select class="form-control" name="tag">
                 @foreach ($tags as $tag)
                 <option value='{{$tag->id}}'>{{$tag->tag}}</option>
                 @endforeach
