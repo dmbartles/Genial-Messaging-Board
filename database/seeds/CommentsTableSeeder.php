@@ -9,9 +9,10 @@ class CommentsTableSeeder extends Seeder
   {
     $comments = [
       ['Bob Smith','1','You are amazing'],
-      ['Jane Smith','4','Nobody will believe you'],
-      ['John Trump','4','HAHAHAHAHAHAH!!!'],
-      ['Anne Roads','4','I hate you, Trump! Now and forever!!!!!'],
+      ['Jane Smith','3','Nobody will believe you'],
+      ['John Trump','2','HAHAHAHAHAHAH!!!'],
+      ['Anne Roads','4','THIS IS THE BEST POST EVER!!!'],
+      ['Mr. Creator','2',"Why isn't this tagged science?!"],
     ];
 
     $count = count($comments);
