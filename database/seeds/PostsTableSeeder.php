@@ -7,10 +7,10 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
       $posts = [
-          ['Bob Smith','Hunting','Sports','I like hunting cause I like eating!'],
-          ['Jane Smith','Global Warming','Environment','It is getting hot in here'],
-          ['John Trump','Global Warming','Environment','I do not believe in global warming, but I rarely leave air conditioning'],
-          ['Anne Roads','Global Warming','Environment','I hate you, Trump!'],
+          ['Bob Smith','Hunting','Sports','I like hunting cause I like eating! There are many ways to hunt, I most prefer videogame hunting. I play Deer Hunter a lot at my local Arcade. Alas, I shall never know the glory of a real hunt....'],
+          ['Jane Smith','Flat World Proof','Environment','If the world was round none of our cell phones could call each other. Obviously, they would lose line of sight due to the curvature of the earth. Plus, birds would get lost all of the time. Thus, the world is flat.'],
+          ['John Trump','Global Warming','Environment','I do not believe in global warming, but I rarely leave air conditioning. I have not had to change the setting from 65 degrees in my entire life. Therefore, the globe could not possibly be getting hotter'],
+          ['Anne Roads','New Cure','Environment','Sorry guys, This is just click bait. Goto www.amazon.com!'],
       ];
 
       $count = count($posts);

@@ -11,8 +11,6 @@ use App\Comment;
 
 class FormController extends Controller
 {
-
-
   public function main()
   {
     $results = Post::orderBy('updated_at','desc')->with('comments')->with('tags')->get();
@@ -23,7 +21,8 @@ class FormController extends Controller
   public function index()
   {
     $results = Post::orderBy('updated_at','desc')->with('comments')->with('tags')->get();
-    return view('index')->with(['results' => $results]);
+    $tags = Tag::orderBy('tag')->get();
+    return view('index')->with(['results' => $results,'tags' => $tags]);
   }
 
   public function create()
@@ -77,12 +76,13 @@ class FormController extends Controller
     ]);
   }
 
-    public function tag(Request $request, $id)
-    {
-      $post = post::where('id','=',$id)->get();
-      $post->tags()->attach(input('tag'));
-      return redirect('/');
-    }
+  public function tag(Request $request, $id)
+  {
+    $post = post::find($id);
+    $post->tags()->sync($request->input('tag'));
+    #$post->tags()->attach($request->input('tag'));
+    return redirect('/');
+  }
 
   public function update(Request $request, $id)
   {
@@ -102,13 +102,14 @@ class FormController extends Controller
 
     $updatepost->save();
 
-    return redirect('/index');
+    return redirect('/');
   }
 
   public function show($id)
   {
     $results = Post::where('id','=',$id)->with('comments')->with('tags')->get();
-    return view('index')->with(['results' => $results]);
+    $tags = Tag::orderBy('tag')->get();
+    return view('index')->with(['results' => $results,'tags' => $tags]);
   }
 
   public function delete($id)
@@ -120,12 +121,13 @@ class FormController extends Controller
   public function destroy($id)
   {
     $destroypost = Post::find($id);
+    $destroypost->tags()->detach();
     $destroypost->comments()->delete();
     $destroypost->delete();
-    return redirect('/index');
+    return redirect('/');
   }
 
-
+  /*
   public function DumpAll()
   {
     echo 'user posts';
@@ -138,12 +140,11 @@ class FormController extends Controller
 
     echo 'tags';
     $tags = Tag::orderBy('tag')->get();
-  dump($tags->toArray());
+    dump($tags->toArray());
 
-      echo 'all';
-        $results = Post::orderBy('updated_at','desc')->with('comments')->with('tags')->get();
-          dump($results->toArray());
-
-  }
+    echo 'all';
+    $results = Post::orderBy('updated_at','desc')->with('comments')->with('tags')->get();
+    dump($results->toArray());
+  }*/
 
 }
